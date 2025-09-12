@@ -7,17 +7,20 @@ seguinte: os alunos da Feevale chegam ao ponto de ônibus e aguardam pelo BUS
 FEEVALE. Quando o ônibus chega, todos os passageiros que já estão esperando
 invocam a ENTRADA no ônibus, mas qualquer aluno que chegar durante o embarque
 deverá aguardar pelo próximo ônibus.
+
 Os alunos devem ser criados de forma aleatória e frequentar as aulas, cuja duração é
 controlada pela universidade, de forma que todas as disciplinas concorrentes terminem
 simultaneamente. Essa duração deve ser aleatória, variando entre 2 e 10 minutos. Ao
 término das aulas, os alunos devem se dirigir ao ponto de ônibus. Importante que as
 disciplinas iniciem e finalizem no mesmo horário.
+
 Os ônibus, por sua vez, devem ser gerados com uma frequência aleatória entre 2 e 3
 minutos. Cada ônibus tem uma capacidade máxima de 50 pessoas; caso haja mais de
 50 passageiros aguardando, o excedente precisará esperar pelo próximo ônibus. Após
 o embarque de todos os passageiros que estavam no ponto, o ônibus pode invocar a
 PARTIDA DO ÔNIBUS. Caso o ônibus chegue e não haja passageiros no ponto, ele
 deve partir imediatamente.
+
 Escreva um código de sincronização que atenda a todas essas restrições, utilizando
 obrigatoriamente threads para representar os alunos e os ônibus.
 Referencias
