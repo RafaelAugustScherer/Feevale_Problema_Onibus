@@ -3,9 +3,11 @@ package src.bus_problem.domain;
 import java.util.ArrayList;
 
 public class ClassRoom {
+    private final String name;
     private final ArrayList<Student> students;
 
-    public ClassRoom() {
+    public ClassRoom(String name) {
+        this.name = name;
         this.students = new ArrayList<>();
     }
 
