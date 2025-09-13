@@ -2,7 +2,7 @@ package src.bus_problem.domain;
 
 import java.util.ArrayList;
 
-class BusStop {
+public class BusStop {
     private final ArrayList<Bus> busLine;
 
     public BusStop() {
@@ -10,22 +10,29 @@ class BusStop {
     }
 
     public void addBus(Bus bus) {
-        this.busLine.add(bus);
+        synchronized (this) {
+            this.busLine.add(bus);
+            this.notifyAll();
+        }
     }
 
     public void departBus(int busPosition) {
-        this.busLine.remove(busPosition);
+        synchronized (this) {
+            this.busLine.remove(busPosition);
+        }
     }
 
     public Bus getFirstBusWithAvailableSeat() {
-        for (int i = 0; i < this.busLine.size(); i++) {
-            Bus bus = this.busLine.get(i);
+        synchronized (this) {
+            for (int i = 0; i < this.busLine.size(); i++) {
+                Bus bus = this.busLine.get(i);
 
-            if (!bus.isFull()) {
-                return bus;
+                if (!bus.isFull()) {
+                    return bus;
+                }
             }
-        }
 
-        return null;
+            return null;
+        }
     }
 }
