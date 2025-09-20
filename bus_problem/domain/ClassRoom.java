@@ -1,4 +1,4 @@
-package src.bus_problem.domain;
+package bus_problem.domain;
 
 import java.util.ArrayList;
 

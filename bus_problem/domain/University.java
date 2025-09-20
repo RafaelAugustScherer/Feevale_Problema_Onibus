@@ -1,4 +1,4 @@
-package src.bus_problem.domain;
+package bus_problem.domain;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,14 @@ public class University {
     public University(ArrayList<ClassRoom> classRooms, BusStop busStop) {
         this.classRooms = classRooms;
         this.busStop = busStop;
+    }
+
+    public ArrayList<ClassRoom> getClassRooms() {
+        return this.classRooms;
+    }
+
+    public void moveBusToBusStop(Bus bus) {
+        this.busStop.addBus(bus);
     }
 
     public void moveStudentsToClassRoom(ArrayList<Student> students, int classRoomIndex) {
@@ -22,7 +30,9 @@ public class University {
     public void finishClassesAndMoveStudentsToBusStop() {
         this.classRooms.forEach((classRoom) -> {
             classRoom.getStudents().forEach((student) -> {
-                student.moveToBusStopAndWaitForBus(this.busStop);
+                new Thread(() -> {
+                    student.moveToBusStopAndWaitForBus(this.busStop);
+                }).start();
             });
 
             classRoom.removeAllStudents();

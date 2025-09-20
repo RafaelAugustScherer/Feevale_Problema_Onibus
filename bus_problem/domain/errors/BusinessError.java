@@ -1,4 +1,4 @@
-package src.bus_problem.domain.errors;
+package bus_problem.domain.errors;
 
 public class BusinessError extends Error {
 

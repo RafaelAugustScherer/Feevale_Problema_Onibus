@@ -1,17 +1,29 @@
-package src.bus_problem.domain;
+package bus_problem.domain;
 
+import bus_problem.domain.errors.BusinessError;
+import bus_problem.domain.interfaces.Observer;
 import java.util.ArrayList;
-import src.bus_problem.domain.errors.BusinessError;
 
-public class Bus extends Thread {
+public class Bus {
     private final String code;
     private final int maxCapacity = 50;
 
+    private final ArrayList<Observer<Bus>> observers;
+
     private final ArrayList<Student> passengers;
 
-    Bus(String code) {
+    public Bus(String code) {
         this.code = code;
         this.passengers = new ArrayList<>();
+        this.observers = new ArrayList<>();
+    }
+
+    public void addObserver(Observer<Bus> observer) {
+        this.observers.add(observer);
+    }
+
+    public String getCode() {
+        return this.code;
     }
 
     public boolean isFull() {
@@ -25,5 +37,9 @@ public class Bus extends Thread {
         }
 
         this.passengers.add(student);
+
+        this.observers.forEach((observer) -> {
+            observer.update(this);
+        });
     }
 }
