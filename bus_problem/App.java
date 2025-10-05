@@ -32,14 +32,14 @@ public class App {
             int busCode = 1;
 
             while (true) {
-                university.moveBusToBusStop(new Bus(String.format("%0" + 3 + "d", busCode)));
-                busCode += 1;
-
                 try {
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.MINUTES.sleep(new Random().nextLong(2, 3));
                 } catch (InterruptedException e) {
                     break;
                 }
+
+                university.moveBusToBusStop(new Bus(String.format("%0" + 3 + "d", busCode)));
+                busCode += 1;
             }
         }).start();
     }
@@ -56,7 +56,7 @@ public class App {
                 }
 
                 try {
-                    TimeUnit.SECONDS.sleep(3);
+                    TimeUnit.MINUTES.sleep(new Random().nextLong(2, 10));
                 } catch (InterruptedException e) {
                     break;
                 }

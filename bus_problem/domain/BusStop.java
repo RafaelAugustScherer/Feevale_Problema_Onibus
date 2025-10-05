@@ -1,5 +1,6 @@
 package bus_problem.domain;
 
+import bus_problem.domain.interfaces.StudentStatus;
 import java.util.ArrayList;
 
 public class BusStop {
@@ -24,8 +25,18 @@ public class BusStop {
                 if (updatedBus.isFull()) {
                     this.departBus(updatedBus);
                 }
+
+                synchronized (this) {
+                    if (this.studentLine.stream()
+                            .noneMatch(student -> student.status == StudentStatus.TRYING_TO_ENTER_BUS)) {
+                        this.departBus(updatedBus);
+                    }
+                }
             });
 
+            this.studentLine.forEach((student) -> {
+                student.syncNotifyBusHasArrived();
+            });
             this.notifyAll();
         }
     }

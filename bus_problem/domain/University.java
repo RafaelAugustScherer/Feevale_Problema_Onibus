@@ -28,14 +28,18 @@ public class University {
     }
 
     public void finishClassesAndMoveStudentsToBusStop() {
+        ArrayList<Thread> threadsToStart = new ArrayList<>();
+
         this.classRooms.forEach((classRoom) -> {
             classRoom.getStudents().forEach((student) -> {
-                new Thread(() -> {
+                threadsToStart.add(new Thread(() -> {
                     student.moveToBusStopAndWaitForBus(this.busStop);
-                }).start();
+                }));
             });
 
             classRoom.removeAllStudents();
         });
+
+        threadsToStart.forEach((thread) -> thread.start());
     }
 }
