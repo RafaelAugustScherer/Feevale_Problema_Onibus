@@ -44,20 +44,20 @@ public class BusStop {
     public void departBus(int busPosition) {
         synchronized (this) {
             this.busLine.remove(busPosition);
-            System.out.println("Bus departed");
+            System.out.println("Bus departed\n");
         }
     }
 
     public void departBus(Bus bus) {
         synchronized (this) {
             this.busLine.remove(bus);
-            System.out.println("Bus departed");
+            System.out.printf("Bus %s departed\n", bus.getCode());
         }
     }
 
     public Bus getFirstBusWithAvailableSeat() {
         synchronized (this) {
-            System.out.printf("Bus line size: %d\n", this.busLine.size());
+            //System.out.printf("Bus line size: %d\n", this.busLine.size());
             for (int i = 0; i < this.busLine.size(); i++) {
                 Bus bus = this.busLine.get(i);
 

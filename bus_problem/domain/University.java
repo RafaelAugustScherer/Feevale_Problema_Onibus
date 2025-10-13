@@ -17,11 +17,11 @@ public class University {
 
     public void moveBusToBusStop(Bus bus) {
         this.busStop.addBus(bus);
+        System.out.printf("bus %s has arrived\n", bus.getCode());
     }
 
     public void moveStudentsToClassRoom(ArrayList<Student> students, int classRoomIndex) {
         ClassRoom classRoom = this.classRooms.get(classRoomIndex);
-
         students.forEach((student) -> {
             classRoom.includeStudent(student);
         });
@@ -29,7 +29,7 @@ public class University {
 
     public void finishClassesAndMoveStudentsToBusStop() {
         ArrayList<Thread> threadsToStart = new ArrayList<>();
-
+        System.out.println("class ended");
         this.classRooms.forEach((classRoom) -> {
             classRoom.getStudents().forEach((student) -> {
                 threadsToStart.add(new Thread(() -> {

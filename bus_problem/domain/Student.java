@@ -40,7 +40,7 @@ public class Student {
                     }
                 } else {
                     this.status = StudentStatus.IN_BUS;
-                    System.out.printf("Available bus for student %s %s\n", this.name, availableBus.getCode());
+                    System.out.printf("Available bus for student %s, bus code:%s\n", this.name, availableBus.getCode());
 
                     busStop.studentLine.remove(this);
                     availableBus.addStudent(this);
