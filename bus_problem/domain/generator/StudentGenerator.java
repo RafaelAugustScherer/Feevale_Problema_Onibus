@@ -4,6 +4,11 @@ import bus_problem.domain.Student;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Utilitário para geração aleatória de alunos com nomes realistas.
+ *
+ * Não envolve threads diretamente; é usado pelo ciclo de aulas para popular salas.
+ */
 public class StudentGenerator {
 
     private static final String[] FIRST_NAMES = {
@@ -22,6 +27,12 @@ public class StudentGenerator {
             "Martins", "Costa", "Pinto", "Moura", "Monteiro", "Freitas", "Campos"
     };
 
+    /**
+     * Gera uma lista de alunos aleatórios.
+     *
+     * @param howMany quantidade de alunos
+     * @return lista de instâncias de {@link Student}
+     */
     public static ArrayList<Student> generate(int howMany) {
         ArrayList<Student> students = new ArrayList<>();
 
