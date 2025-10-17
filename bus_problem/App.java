@@ -61,7 +61,7 @@ public class App {
 
             while (true) {
                 try {
-                    TimeUnit.SECONDS.sleep(new Random().nextLong(2, 3));
+                    TimeUnit.MINUTES.sleep(new Random().nextLong(2, 3));
                 } catch (InterruptedException e) {
                     break;
                 }
@@ -96,7 +96,7 @@ public class App {
                 }
 
                 try {
-                    TimeUnit.SECONDS.sleep(new Random().nextLong(2, 10));
+                    TimeUnit.MINUTES.sleep(new Random().nextLong(2, 10));
                 } catch (InterruptedException e) {
                     break;
                 }
