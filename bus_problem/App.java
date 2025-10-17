@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class App {
     /**
-     * Inicializa a universidade e inicia as threads de geração de aulas e de ônibus.
+     * Inicializa a universidade e inicia as threads de geração de aulas e deb ônius.
      */
     public static void main(String[] args) {
         University university = App.setupUniversity();
@@ -61,7 +61,7 @@ public class App {
 
             while (true) {
                 try {
-                    TimeUnit.MINUTES.sleep(new Random().nextLong(2, 3));
+                    TimeUnit.SECONDS.sleep(new Random().nextLong(2, 3));
                 } catch (InterruptedException e) {
                     break;
                 }
@@ -96,7 +96,7 @@ public class App {
                 }
 
                 try {
-                    TimeUnit.MINUTES.sleep(new Random().nextLong(2, 10));
+                    TimeUnit.SECONDS.sleep(new Random().nextLong(2, 10));
                 } catch (InterruptedException e) {
                     break;
                 }

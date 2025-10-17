@@ -24,7 +24,7 @@ public class StudentGenerator {
             "Pereira", "Lima", "Gomes", "Ribeiro", "Carvalho", "Almeida", "Lopes",
             "Soares", "Fernandes", "Vieira", "Barbosa", "Rocha", "Dias", "Nunes",
             "Mendes", "Ramos", "Moreira", "Araújo", "Cardoso", "Nascimento", "Correia",
-            "Martins", "Costa", "Pinto", "Moura", "Monteiro", "Freitas", "Campos"
+            "Martins", "Costa", "Pinto", "Moura", "Monteiro", "Freitas", "Campos", "Duarte", "Scherer", "Fenner"
     };
 
     /**
